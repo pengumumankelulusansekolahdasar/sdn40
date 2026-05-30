@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="theme-color" content="#bd2f3d">
+  <title>Pengumuman Kelulusan | SDN 40/II Tebing Tinggi</title>
+  <style>
+    :root {
+      --primary:#be2f3e;
+      --primary-dark:#7f1f2a;
+      --accent:#d89515;
+      --accent-soft:#fff7e6;
+      --green:#057a55;
+      --green-soft:#edfdf5;
+      --ink:#111827;
+      --muted:#64748b;
+      --line:#e5e7eb;
+      --card:#ffffff;
+    }
+    * { box-sizing:border-box; }
+    html,body { margin:0; min-height:100%; }
+    body {
+      min-height:100vh;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 50% -8%, rgba(255,255,255,.18), transparent 36%),
+        linear-gradient(135deg, #741d28 0%, #b82d3d 46%, #d89515 100%);
+      overflow-x:hidden;
+    }
+    .orb {
+      position:fixed;
+      top:50%;
+      width:292px;
+      height:292px;
+      border-radius:999px;
+      transform:translateY(-50%);
+      pointer-events:none;
+      opacity:.14;
+      z-index:0;
+    }
+    .orb-left { left:-128px; background:#ffdd7a; }
+    .orb-right { right:-128px; background:#ffffff; }
+    .page {
+      position:relative;
+      z-index:1;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:38px 18px;
+    }
+    .column {
+      width:min(790px,100%);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+    }
+    .brand { color:#fff; width:100%; margin-bottom:24px; }
+    .logo-wrap {
+      width:116px;
+      height:116px;
+      margin:0 auto 15px;
+      display:grid;
+      place-items:center;
+      border-radius:50%;
+      padding:9px;
+      background:white;
+      border:4px solid rgba(255,255,255,.42);
+      box-shadow:0 16px 35px rgba(40,10,14,.28);
+    }
+    .logo-wrap img { width:100%; height:100%; object-fit:contain; border-radius:50%; }
+    .eyebrow {
+      margin:0 0 9px;
+      color:#ffe084;
+      font-size:12px;
+      letter-spacing:.34em;
+      font-weight:800;
+      text-transform:uppercase;
+    }
+    h1 {
+      margin:0;
+      font-size:clamp(25px,3vw,30px);
+      letter-spacing:-.035em;
+      font-weight:850;
+      text-transform:uppercase;
+      line-height:1.15;
+    }
+    .subtitle { margin:8px 0 0; color:rgba(255,255,255,.86); font-size:14px; }
+    .card {
+      width:min(430px,100%);
+      margin:0 auto;
+      padding:27px 23px 23px;
+      background:var(--card);
+      border-radius:27px;
+      box-shadow:0 24px 68px rgba(31,12,10,.31);
+    }
+    .card h2 { font-size:21px; margin:0 0 8px; }
+    .guide { color:var(--muted); font-size:13.5px; line-height:1.6; margin:0 0 21px; }
+    .field { margin-bottom:15px; text-align:left; }
+    .field label { display:block; margin-bottom:8px; font-size:13px; font-weight:700; color:#334155; }
+    .input {
+      position:relative;
+      display:flex;
+      align-items:center;
+      border:1px solid #d8dee8;
+      background:#f8fafc;
+      border-radius:13px;
+      height:50px;
+      transition:.18s ease;
+    }
+    .input:focus-within { border-color:var(--primary); background:#fff; box-shadow:0 0 0 3px rgba(190,47,62,.12); }
+    .input svg { width:18px; height:18px; margin-left:14px; color:#94a3b8; flex:none; }
+    .input input {
+      width:100%;
+      min-width:0;
+      border:0;
+      outline:0;
+      background:transparent;
+      padding:0 14px 0 11px;
+      height:100%;
+      font-size:14px;
+      color:#172033;
+    }
+    .input input.name { text-transform:uppercase; font-weight:600; }
+    .input input::placeholder { font-weight:400; text-transform:none; color:#94a3b8; }
+    .btn {
+      width:100%;
+      height:50px;
+      border:0;
+      border-radius:13px;
+      background:var(--primary);
+      color:#fff;
+      font-weight:750;
+      font-size:14px;
+      cursor:pointer;
+      transition:.18s ease;
+      box-shadow:0 10px 20px rgba(190,47,62,.22);
+    }
+    .btn:hover { background:#9e2433; transform:translateY(-1px); }
+    .btn:disabled { opacity:.7; cursor:wait; transform:none; }
+    .error {
+      display:none;
+      margin:2px 0 15px;
+      padding:11px 12px;
+      text-align:left;
+      background:#fff1f2;
+      color:#a31526;
+      border:1px solid #ffe0e5;
+      border-radius:11px;
+      font-size:13px;
+      line-height:1.45;
+    }
+    .secure { margin:20px 0 0; color:#94a3b8; font-size:12px; display:flex; align-items:center; justify-content:center; gap:6px; }
+    .secure svg { width:14px; height:14px; }
+    footer { margin-top:24px; width:100%; text-align:center; color:rgba(255,255,255,.78); font-size:12px; }
+    #resultView { display:none; width:min(750px,100%); }
+    .result-card {
+      width:100%;
+      border-radius:29px;
+      overflow:hidden;
+      background:#fff;
+      box-shadow:0 25px 72px rgba(26,8,12,.32);
+    }
+    .result-head {
+      padding:23px 20px 25px;
+      color:#fff;
+      background:linear-gradient(135deg, var(--primary-dark), var(--primary), var(--accent));
+      text-align:center;
+    }
+    .result-head .logo-wrap { width:94px; height:94px; margin-bottom:12px; }
+    .result-head h1 { font-size:clamp(20px,3vw,25px); }
+    .result-body { text-align:center; padding:31px 25px 25px; }
+    .result-label { color:#94a3b8; text-transform:uppercase; font-size:11px; font-weight:800; letter-spacing:.26em; margin:0; }
+    .student-intro { color:#475569; font-size:14px; margin:17px 0 9px; }
+    #studentName { font-size:clamp(24px,4vw,31px); font-weight:850; text-transform:uppercase; margin:0 0 18px; color:#111827; }
+    .nisn-box {
+      display:inline-block;
+      min-width:205px;
+      padding:12px 18px;
+      margin-bottom:23px;
+      border-radius:14px;
+      background:#f8fafc;
+      border:1px solid #eef2f7;
+    }
+    .nisn-box small { display:block; color:#94a3b8; font-size:10.5px; letter-spacing:.2em; font-weight:800; }
+    #nisnMasked { display:block; margin-top:5px; font-size:15px; letter-spacing:.1em; font-weight:750; color:#334155; }
+    .status {
+      width:min(480px,100%);
+      margin:0 auto 20px;
+      padding:20px 15px;
+      border:2px solid #b9eed8;
+      border-radius:20px;
+      background:var(--green-soft);
+      color:var(--green);
+    }
+    .status svg { width:43px; height:43px; }
+    .status small { display:block; margin-top:6px; font-size:11px; font-weight:800; letter-spacing:.3em; }
+    .status strong { display:block; font-size:45px; letter-spacing:.08em; line-height:1.18; }
+    .congrats { max-width:540px; margin:0 auto; color:#64748b; font-size:14px; line-height:1.7; }
+    .actions { display:flex; justify-content:center; gap:10px; border-top:1px solid #f0f2f5; margin-top:26px; padding-top:21px; }
+    .action { height:46px; border-radius:12px; padding:0 23px; border:1px solid #e2e8f0; background:#fff; color:#475569; font-weight:700; cursor:pointer; }
+    .action.primary { color:#fff; background:var(--primary); border-color:var(--primary); }
+    .confetti {
+      position: fixed;
+      top: -10px;
+      width: 9px;
+      height: 14px;
+      border-radius: 4px;
+      pointer-events: none;
+      z-index: 5;
+      animation: fall 1200ms linear forwards;
+    }
+    @keyframes fall {
+      to { transform: translateY(110vh) rotate(520deg); opacity: 0; }
+    }
+    @media (max-width:560px) {
+      .page { align-items:flex-start; padding-top:22px; }
+      .brand { margin-bottom:19px; }
+      .logo-wrap { width:99px; height:99px; }
+      .card { padding:24px 18px 20px; border-radius:23px; }
+      .orb { width:176px; height:176px; }
+      .orb-left { left:-95px; }
+      .orb-right { right:-95px; }
+      .actions { flex-direction:column-reverse; }
+      .action { width:100%; }
+    }
+    @media print {
+      @page { size:A4; margin:14mm; }
+      body { background:#fff; }
+      .orb, #loginView, .actions, .confetti { display:none !important; }
+      .page { min-height:0; padding:0; }
+      #resultView { display:block !important; width:100%; }
+      .result-card { box-shadow:none; border-radius:0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="orb orb-left"></div>
+  <div class="orb orb-right"></div>
+
+  <main class="page">
+    <section class="column" id="loginView">
+      <header class="brand">
+        <div class="logo-wrap"><img src="assets/logo-sdn-40.png" alt="Logo SDN 40/II Tebing Tinggi"></div>
+        <p class="eyebrow">Pengumuman Kelulusan</p>
+        <h1>SDN 40/II Tebing Tinggi</h1>
+        <p class="subtitle">Pengumuman Hasil Kelulusan Peserta Didik</p>
+      </header>
+
+      <div class="card">
+        <h2>Cek Kelulusan</h2>
+        <p class="guide">Masukkan nama lengkap dan NISN peserta didik untuk melihat hasil.</p>
+        <form id="loginForm" autocomplete="off">
+          <div class="field">
+            <label for="name">Nama Peserta Didik</label>
+            <div class="input">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4.2 4-6.3 8-6.3S19 16.8 20 21"/></svg>
+              <input class="name" id="name" type="text" required placeholder="Masukkan nama lengkap">
+            </div>
+          </div>
+          <div class="field">
+            <label for="nisn">Password / NISN</label>
+            <div class="input">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+              <input id="nisn" type="password" inputmode="numeric" maxlength="10" required placeholder="Masukkan NISN">
+            </div>
+          </div>
+          <div class="error" id="errorMessage" role="alert"></div>
+          <button class="btn" id="submitButton" type="submit">Lihat Pengumuman</button>
+        </form>
+        <p class="secure">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+          Akses hanya untuk peserta didik terdaftar
+        </p>
+      </div>
+      <footer>© 2026 SDN 40/II Tebing Tinggi · Pengumuman Kelulusan</footer>
+    </section>
+
+    <section id="resultView">
+      <article class="result-card">
+        <div class="result-head">
+          <div class="logo-wrap"><img src="assets/logo-sdn-40.png" alt="Logo SDN 40/II Tebing Tinggi"></div>
+          <p class="eyebrow">Pengumuman Kelulusan</p>
+          <h1>SDN 40/II Tebing Tinggi</h1>
+          <p class="subtitle">Pengumuman Hasil Kelulusan Peserta Didik</p>
+        </div>
+        <div class="result-body">
+          <p class="result-label">Hasil Kelulusan</p>
+          <p class="student-intro">Dengan bangga diumumkan bahwa:</p>
+          <h2 id="studentName"></h2>
+          <div class="nisn-box"><small>NISN</small><span id="nisnMasked"></span></div>
+          <div class="status">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="m7.5 12 3 3 6-7"/></svg>
+            <small>DINYATAKAN</small>
+            <strong>LULUS</strong>
+          </div>
+          <p class="congrats">Selamat atas kelulusan yang telah diraih. Teruslah belajar, menjaga karakter baik, dan meraih cita-cita dengan penuh semangat.</p>
+          <div class="actions">
+            <button class="action" id="logoutButton" type="button">Keluar</button>
+            <button class="action primary" type="button" onclick="window.print()">Cetak Hasil</button>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script>
+    const validCredentials = new Set([
+      "e5d9ff8dd55e12d96e5c631fbea9302aa69d50f8e93edb7b058b43ff4308e156",
+      "3e928bca8ceb2791c692a321e9f353b6e7c23dbd55f83127295a5d82d8d2d1a1",
+      "6c18770a4910ef3b91aeb76bc4171c81d1e105fd30614add6cd9660174b00e07",
+      "de9f3dfc77ff0c45ef34fe3e80ff1ca7f918840af5023dc709183f3f8dde4919",
+      "578371caf2058dacf59ab6e01cbcfc30822879d095a6cb191baa8bf03602dcf3",
+      "761045e5b6bce5ad4656d8b39cd7ca31b9755fd0f794d591e070222b426f7f25",
+      "e45a8f86ff3c864f4cb7e20e59a6727e44e822f5eee35500601316ec29a0bfc6",
+      "0c7e500b95aa38b47031275de406b38ee1972e4c6cbca08e8524c8999d5747af",
+      "c62fb3fc8894a5501d694c3918d57167b71ad18d4d46da71cb4dbe4b16362420",
+      "b090c029a7a75959c93a3c3464411d97730210f3b644a0448aa141850654f750",
+      "d055a5da744757f4ffd9604533ad894f5eb70fcfad948084c3a188ca4f706741",
+      "52729b55cda35758dc37244647b39bdccc1cea94869043253e17dcb9cd1743ae",
+      "cf3c4ac37bd73b4e7c1f23eeff48d1e8c1837b9879f63fb11f844c5499633c27",
+      "01ee38066c97ab2a02dfcb24d169530708361d48b4a7175a21c9505463901bb2",
+      "f1df44f3dd336c42e34e2740ba40abae1cee3146334ccd931fc15a239bf2c0db",
+      "15d1c511ca8dd0e3200f3d085635c28c792cc98cc1854e012eebad79e0a05cf3",
+      "0b44ccc7b6f32929428ff91c22634e05751d285b7801ee7131c91daf5e8677dc",
+      "64cd7c4f363481b4a82b199b2a533d7f5ef5a05ee5d1cce5a28d05a1338a384b",
+      "a9e6b8adadf6d5fadc8464916dfeb2ff4f6b63c08bfd255dd2b53e4aa49b9f30",
+      "3dd80b02334d454bef75c56bd913226e672f147fd4f89a12e32e0b9e2a9186a1",
+      "9181bfa8384d4c1f1fc4a6e0fb04244733a68b1969bd9a427cebdbd867202bff"
+    ]);
+
+    const loginForm = document.getElementById("loginForm");
+    const errorMessage = document.getElementById("errorMessage");
+    const submitButton = document.getElementById("submitButton");
+    const loginView = document.getElementById("loginView");
+    const resultView = document.getElementById("resultView");
+    let failedAttempts = 0;
+    let blockedUntil = 0;
+
+    function normalizeName(value) {
+      return value
+        .replace(/[’`]/g, "'")
+        .trim()
+        .replace(/\s+/g, " ")
+        .toUpperCase();
+    }
+
+    function credentialNameKey(value) {
+      return normalizeName(value).replace(/[\.\s]+/g, "");
+    }
+
+    async function sha256(value) {
+      if (window.crypto && window.crypto.subtle) {
+        const bytes = new TextEncoder().encode(value);
+        const digest = await window.crypto.subtle.digest("SHA-256", bytes);
+        return Array.from(new Uint8Array(digest)).map(byte => byte.toString(16).padStart(2, "0")).join("");
+      }
+      function rightRotate(n, x) { return (x >>> n) | (x << (32 - n)); }
+      const maxWord = Math.pow(2, 32);
+      const words = [];
+      let ascii = unescape(encodeURIComponent(value));
+      const bitLength = ascii.length * 8;
+      const hash = [];
+      const k = [];
+      const composite = {};
+      let primeCounter = 0;
+      for (let candidate = 2; primeCounter < 64; candidate++) {
+        if (!composite[candidate]) {
+          for (let multiple = candidate * candidate; multiple < 400; multiple += candidate) composite[multiple] = true;
+          hash[primeCounter] = (Math.pow(candidate, .5) * maxWord) | 0;
+          k[primeCounter++] = (Math.pow(candidate, 1 / 3) * maxWord) | 0;
+        }
+      }
+      ascii += "\x80";
+      while (ascii.length % 64 !== 56) ascii += "\x00";
+      for (let i = 0; i < ascii.length; i++) {
+        words[i >> 2] |= ascii.charCodeAt(i) << ((3 - i) % 4) * 8;
+      }
+      words[words.length] = (bitLength / maxWord) | 0;
+      words[words.length] = bitLength;
+      let currentHash = hash.slice();
+      for (let j = 0; j < words.length;) {
+        const w = words.slice(j, j += 16);
+        const oldHash = currentHash.slice();
+        currentHash = currentHash.slice(0, 8);
+        for (let i = 0; i < 64; i++) {
+          const w15 = w[i - 15], w2 = w[i - 2];
+          const a = currentHash[0], e = currentHash[4];
+          const temp1 = currentHash[7]
+            + (rightRotate(6, e) ^ rightRotate(11, e) ^ rightRotate(25, e))
+            + ((e & currentHash[5]) ^ ((~e) & currentHash[6]))
+            + k[i]
+            + (w[i] = i < 16 ? w[i] : (
+              w[i - 16]
+              + (rightRotate(7, w15) ^ rightRotate(18, w15) ^ (w15 >>> 3))
+              + w[i - 7]
+              + (rightRotate(17, w2) ^ rightRotate(19, w2) ^ (w2 >>> 10))
+            ) | 0);
+          const temp2 = (rightRotate(2, a) ^ rightRotate(13, a) ^ rightRotate(22, a))
+            + ((a & currentHash[1]) ^ (a & currentHash[2]) ^ (currentHash[1] & currentHash[2]));
+          currentHash = [(temp1 + temp2) | 0].concat(currentHash);
+          currentHash[4] = (currentHash[4] + temp1) | 0;
+        }
+        for (let i = 0; i < 8; i++) currentHash[i] = (currentHash[i] + oldHash[i]) | 0;
+      }
+      return currentHash.slice(0, 8).map(word => {
+        let out = "";
+        for (let j = 3; j >= 0; j--) out += ((word >> (j * 8)) & 255).toString(16).padStart(2, "0");
+        return out;
+      }).join("");
+    }
+
+    function showError(message) {
+      errorMessage.textContent = message;
+      errorMessage.style.display = "block";
+    }
+
+    function maskNisn(nisn) {
+      return nisn.slice(0, 3) + "•••••" + nisn.slice(-2);
+    }
+
+    function celebrate() {
+      const colors = ["#be2f3e", "#d89515", "#22c55e", "#ffffff"];
+      for (let i = 0; i < 30; i++) {
+        const piece = document.createElement("span");
+        piece.className = "confetti";
+        piece.style.left = Math.random() * 100 + "vw";
+        piece.style.background = colors[i % colors.length];
+        piece.style.animationDelay = Math.random() * 400 + "ms";
+        document.body.appendChild(piece);
+        setTimeout(() => piece.remove(), 1700);
+      }
+    }
+
+    loginForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (Date.now() < blockedUntil) {
+        showError("Terlalu banyak percobaan. Silakan tunggu 30 detik kemudian coba kembali.");
+        return;
+      }
+
+      errorMessage.style.display = "none";
+      submitButton.disabled = true;
+      submitButton.textContent = "Memeriksa Data...";
+
+      const displayName = normalizeName(document.getElementById("name").value);
+      const nameKey = credentialNameKey(document.getElementById("name").value);
+      const nisn = document.getElementById("nisn").value.replace(/\D/g, "");
+      const hash = await sha256(nameKey + "|" + nisn);
+
+      if (validCredentials.has(hash)) {
+        failedAttempts = 0;
+        document.getElementById("studentName").textContent = displayName;
+        document.getElementById("nisnMasked").textContent = maskNisn(nisn);
+        loginView.style.display = "none";
+        resultView.style.display = "block";
+        celebrate();
+      } else {
+        failedAttempts += 1;
+        if (failedAttempts >= 3) {
+          failedAttempts = 0;
+          blockedUntil = Date.now() + 30000;
+          showError("Data tidak ditemukan. Login dikunci sementara selama 30 detik.");
+        } else {
+          showError("Nama peserta didik atau NISN tidak sesuai. Silakan periksa kembali.");
+        }
+      }
+
+      submitButton.disabled = false;
+      submitButton.textContent = "Lihat Pengumuman";
+    });
+
+    document.getElementById("logoutButton").addEventListener("click", () => {
+      loginForm.reset();
+      errorMessage.style.display = "none";
+      resultView.style.display = "none";
+      loginView.style.display = "flex";
+    });
+  </script>
+</body>
+</html>
